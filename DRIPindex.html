@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Return Platform</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #007BFF;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin: 0 0 10px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Deposit Return Platform - Agnetapark, Delft
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#offer">Offer Items</a>
+        <a href="#pickup">Pickup Requests</a>
+        <a href="#about">About Us</a>
+    </nav>
+
+    <div class="container" id="offer">
+        <h2>Offer Your Deposit Items</h2>
+        <form>
+            <label for="item">Item Type:</label>
+            <select id="item" name="item">
+                <option value="can">Can</option>
+                <option value="bottle">Bottle</option>
+                <option value="crate">Crate</option>
+            </select><br><br>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1"><br><br>
+            <label for="deposit">Total Deposit (€):</label>
+            <input type="number" id="deposit" name="deposit" step="0.01" min="0"><br><br>
+            <label for="location">Pickup Location:</label>
+            <input type="text" id="location" name="location" value="Agnetapark, Delft" readonly><br><br>
+            <button type="submit" class="button">Submit Offer</button>
+        </form>
+    </div>
+
+    <div class="container" id="pickup">
+        <h2>Available Pickup Requests</h2>
+        <form>
+            <label for="margin">Desired Pickup Margin (€):</label>
+            <input type="number" id="margin" name="margin" step="0.01" min="0"><br><br>
+            <button type="submit" class="button">Set Preferences</button>
+        </form>
+        <div class="grid">
+            <div class="card">
+                <h3>Can - 10 Items</h3>
+                <p>Total Deposit: €1.50</p>
+                <p>Location: Agnetapark, Delft</p>
+                <button class="button">Accept Request</button>
+            </div>
+            <div class="card">
+                <h3>Bottle - 5 Items</h3>
+                <p>Total Deposit: €1.25</p>
+                <p>Location: Agnetapark, Delft</p>
+                <button class="button">Accept Request</button>
+            </div>
+            <div class="card">
+                <h3>Crate - 2 Items</h3>
+                <p>Total Deposit: €3.00</p>
+                <p>Location: Agnetapark, Delft</p>
+                <button class="button">Accept Request</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Deposit Return Platform - Agnetapark, Delft. All Rights Reserved.
+    </footer>
+</body>
+</html>
