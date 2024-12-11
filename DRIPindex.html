@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deposit Return Platform</title>
+    <title>Deposit Return Interactive Platform</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -76,69 +76,116 @@
             margin: 0 0 10px;
             color: #007BFF;
         }
+        .language-switcher {
+            margin: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <header>
-        Deposit Return Platform - Agnetapark, Delft
+    <header id="header">
+        Deposit Return Interactive Platform - Agnetapark, Delft
     </header>
     <nav>
-        <a href="#">Home</a>
-        <a href="#offer">Offer Items</a>
-        <a href="#pickup">Pickup Requests</a>
-        <a href="#about">About Us</a>
+        <a href="#" id="nav-home">Home</a>
+        <a href="#offer" id="nav-offer">Offer Items</a>
+        <a href="#pickup" id="nav-pickup">Pickup Requests</a>
+        <a href="#about" id="nav-about">About Us</a>
     </nav>
 
+    <div class="language-switcher">
+        <label for="language">Choose Language:</label>
+        <select id="language" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="ru">Русский</option>
+            <option value="ar">العربية</option>
+            <option value="tr">Türkçe</option>
+            <option value="hu">Magyar</option>
+        </select>
+    </div>
+
     <div class="container" id="offer">
-        <h2>Offer Your Deposit Items</h2>
+        <h2 id="offer-title">Offer Your Deposit Items</h2>
         <form>
-            <label for="item">Item Type:</label>
+            <label for="name" id="label-name">Your Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="contact" id="label-contact">Contact (Phone/Email):</label>
+            <input type="text" id="contact" name="contact" required><br><br>
+            <label for="item" id="label-item">Item Type:</label>
             <select id="item" name="item">
                 <option value="can">Can</option>
                 <option value="bottle">Bottle</option>
                 <option value="crate">Crate</option>
             </select><br><br>
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1"><br><br>
-            <label for="deposit">Total Deposit (€):</label>
-            <input type="number" id="deposit" name="deposit" step="0.01" min="0"><br><br>
-            <label for="location">Pickup Location:</label>
+            <label for="quantity" id="label-quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+            <label for="deposit" id="label-deposit">Total Deposit (€):</label>
+            <input type="number" id="deposit" name="deposit" step="0.01" min="0" required><br><br>
+            <label for="location" id="label-location">Pickup Location:</label>
             <input type="text" id="location" name="location" value="Agnetapark, Delft" readonly><br><br>
-            <button type="submit" class="button">Submit Offer</button>
+            <button type="submit" class="button" id="submit-offer">Submit Offer</button>
         </form>
     </div>
 
-    <div class="container" id="pickup">
-        <h2>Available Pickup Requests</h2>
-        <form>
-            <label for="margin">Desired Pickup Margin (€):</label>
-            <input type="number" id="margin" name="margin" step="0.01" min="0"><br><br>
-            <button type="submit" class="button">Set Preferences</button>
-        </form>
-        <div class="grid">
-            <div class="card">
-                <h3>Can - 10 Items</h3>
-                <p>Total Deposit: €1.50</p>
-                <p>Location: Agnetapark, Delft</p>
-                <button class="button">Accept Request</button>
-            </div>
-            <div class="card">
-                <h3>Bottle - 5 Items</h3>
-                <p>Total Deposit: €1.25</p>
-                <p>Location: Agnetapark, Delft</p>
-                <button class="button">Accept Request</button>
-            </div>
-            <div class="card">
-                <h3>Crate - 2 Items</h3>
-                <p>Total Deposit: €3.00</p>
-                <p>Location: Agnetapark, Delft</p>
-                <button class="button">Accept Request</button>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2024 Deposit Return Platform - Agnetapark, Delft. All Rights Reserved.
+    <footer id="footer">
+        &copy; 2024 Deposit Return Interactive Platform - Agnetapark, Delft. All Rights Reserved.
     </footer>
+
+    <script>
+        const translations = {
+            en: {
+                "header": "Deposit Return Interactive Platform - Agnetapark, Delft",
+                "nav-home": "Home",
+                "nav-offer": "Offer Items",
+                "nav-pickup": "Pickup Requests",
+                "nav-about": "About Us",
+                "offer-title": "Offer Your Deposit Items",
+                "label-name": "Your Name:",
+                "label-contact": "Contact (Phone/Email):",
+                "label-item": "Item Type:",
+                "label-quantity": "Quantity:",
+                "label-deposit": "Total Deposit (€):",
+                "label-location": "Pickup Location:",
+                "submit-offer": "Submit Offer",
+                "footer": "&copy; 2024 Deposit Return Interactive Platform - Agnetapark, Delft. All Rights Reserved."
+            },
+            nl: {
+                "header": "Interactief Statiegeld Platform - Agnetapark, Delft",
+                "nav-home": "Home",
+                "nav-offer": "Aanbiedingen",
+                "nav-pickup": "Ophaalverzoeken",
+                "nav-about": "Over Ons",
+                "offer-title": "Bied Uw Statiegelditems Aan",
+                "label-name": "Uw Naam:",
+                "label-contact": "Contact (Telefoon/E-mail):",
+                "label-item": "Item Type:",
+                "label-quantity": "Aantal:",
+                "label-deposit": "Totaal Statiegeld (€):",
+                "label-location": "Ophaallocatie:",
+                "submit-offer": "Aanbieding Versturen",
+                "footer": "&copy; 2024 Interactief Statiegeld Platform - Agnetapark, Delft. Alle Rechten Voorbehouden."
+            }
+        };
+
+        function changeLanguage() {
+            const language = document.getElementById('language').value;
+            const elements = document.querySelectorAll('[id]');
+
+            elements.forEach(element => {
+                const key = element.id;
+                if (translations[language] && translations[language][key]) {
+                    if (key === 'footer') {
+                        element.innerHTML = translations[language][key];
+                    } else {
+                        element.textContent = translations[language][key];
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
